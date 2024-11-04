@@ -10,7 +10,6 @@ interface VocabularyWord {
 }
 
 const vocabularyList: VocabularyWord[] = [
-  // School
   { japanese: '大学', reading: 'だいがく', english: 'college; university', category: 'School' },
   { japanese: '高校', reading: 'こうこう', english: 'high school', category: 'School' },
   { japanese: '学生', reading: 'がくせい', english: 'student', category: 'School' },
@@ -19,19 +18,13 @@ const vocabularyList: VocabularyWord[] = [
   { japanese: '先生', reading: 'せんせい', english: 'teacher; Professor', category: 'School' },
   { japanese: '一年生', reading: 'いちねんせい', english: 'first-year student', category: 'School' },
   { japanese: '専攻', reading: 'せんこう', english: 'major', category: 'School' },
-  
-  // Person
   { japanese: '私', reading: 'わたし', english: 'I', category: 'Person' },
   { japanese: '友達', reading: 'ともだち', english: 'friend', category: 'Person' },
   { japanese: '日本人', reading: 'にほんじん', english: 'Japanese people', category: 'Person' },
-  
-  // Time
   { japanese: '今', reading: 'いま', english: 'now', category: 'Time' },
   { japanese: '午前', reading: 'ごぜん', english: 'A.M.', category: 'Time' },
   { japanese: '午後', reading: 'ごご', english: 'P.M.', category: 'Time' },
   { japanese: '半', reading: 'はん', english: 'half', category: 'Time' },
-  
-  // Others
   { japanese: '日本', reading: 'にほん', english: 'Japan', category: 'Others' },
   { japanese: 'アメリカ', english: 'U.S.A.', category: 'Others' },
   { japanese: '日本語', reading: 'にほんご', english: 'Japanese language', category: 'Others' },
@@ -239,3 +232,13 @@ export default function VocabularyStudy() {
     </div>
   );
 }
+
+// CSSスタイル
+const styles = `
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari用 */
+}
+`;
+
+export { styles }; // 他のファイルでインポートできるようにする
