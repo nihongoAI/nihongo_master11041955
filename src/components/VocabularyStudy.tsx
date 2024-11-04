@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { ChevronLeft, ChevronRight, Repeat, CheckCircle2, XCircle, BookOpen, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,9 +50,12 @@ export default function VocabularyStudy() {
   const [showAnswer, setShowAnswer] = useState(false);
 
   const categories = ['All', ...new Set(vocabularyList.map(word => word.category))];
-  const filteredWords = selectedCategory === 'All' 
-    ? vocabularyList 
-    : vocabularyList.filter(word => word.category === selectedCategory);
+  const filteredWords = useMemo(() => 
+    selectedCategory === 'All' 
+      ? vocabularyList 
+      : vocabularyList.filter(word => word.category === selectedCategory),
+    [selectedCategory]
+  );
 
   const currentWord = filteredWords[currentIndex];
 
@@ -216,6 +219,7 @@ export default function VocabularyStudy() {
 
         <div className="flex items-center justify-center space-x-4">
           <button
+            aria-label="前の単語へ"
             onClick={handlePrevious}
             className="p-2 text-gray-600 hover:text-gray-900"
           >
